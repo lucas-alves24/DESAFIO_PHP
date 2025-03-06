@@ -63,50 +63,10 @@
                         <label for="password">Senha</label>
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
-                    <button type="submit" class="btn btn-primary">Adicionar Usuário</button>
+                    <button type="submit"  class="btn btn-primary">Adicionar Usuário</button>
+                    
+                    <a href="{{ route('people.user') }}" target = "_blank" class="btn btn-primary mb-3">Ver Usuários</a>
                 </form>
-
-                <table class="table table-striped mt-4">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Sobrenome</th>
-                            <th>Email</th>
-                            <th>Telefone</th>
-                            <th>Data de Nascimento</th>
-                            <th>Criado em</th>
-                            <th>Atualizado em</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                            <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->sobrenome }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->telefone }}</td>
-                                <td>{{ $user->data_de_nascimento }}</td>
-                                <td>{{ $user->created_at }}</td>
-                                <td>{{ $user->updated_at }}</td>
-                                <td>
-                                    <a href="{{ route('people.show', $user->id) }}"
-                                        class="btn btn-info btn-sm mt-2">Detalhes</a>
-                                    <a href="{{ route('people.edit', $user->id) }}"
-                                        class="btn btn-warning btn-sm mt-2 mb-2">Editar</a>
-                                    <form action="{{ route('people.destroy', $user->id) }}" method="POST"
-                                        style="display:inline-block;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

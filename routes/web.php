@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/pessoas', [ListUserController::class, 'index'])->name('people.index');
 Route::post('/pessoas/cadastro', [ListUserController::class, 'store'])->name('people.store');
+Route::get('/pessoas/user',[ListUserController::class, 'form'])->name('people.user');
 Route::get('/pessoas/{id}', [ListUserController::class, 'show'])->name('people.show');
 Route::get('/pessoas/{id}/edit', [ListUserController::class, 'edit'])->name('people.edit');
 Route::post('/pessoas/{id}', [ListUserController::class, 'update'])->name('people.update');
